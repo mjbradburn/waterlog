@@ -1,0 +1,30 @@
+
+<%= form_for(@secchi_depth, remote: true) do |f| %>
+  
+  <div class="field">
+    <%= f.label :lake_id %><br>
+    <%= f.select :lake_id, options_for_select(Lake.all.collect {|l| ["#{l.lkname}", l.id]}, selected: (@secchi_depth.lake ? @secchi_depth.lake.id : Lake.first.id)), {} %>
+  </div>
+
+  <div class="field">
+    <%= f.label :sample_time %><br>
+    <%= f.datetime_select :sample_time %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :secchi_depth_ft %><br>
+    <%= f.text_field :secchi_depth_ft %>
+  </div>
+  <div class="field">
+    <%= f.label :weather %><br>
+    <%= f.select :weather, {"Sunny"=> 1, "Partly Cloudy"=>2, "Overcast"=>3, "Foggy"=> 4}%>
+  </div>
+  <div class="field">
+    <%= f.label :comments %><br>
+    <%= f.text_area :comments %>
+  </div>
+  <div class="actions">
+    <%= f.submit class: 'btn btn-primary'%>
+    <%= link_to 'Cancel', :back, :class=>"btn btn-default"%>
+  </div>
+<% end %>

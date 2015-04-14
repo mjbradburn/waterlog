@@ -1,0 +1,12 @@
+    <tr data-toggle="collapse" data-target=".sample<%=secchi_depth.id%>">
+      <td><%= Lake.find(secchi_depth.lake_id).lkname %> </td>
+      <td><%= secchi_depth.sample_time.to_s(:long) %></td>
+      <td><%= secchi_depth.secchi_depth_ft %></td> 
+
+      <td><button type='button' class='btn btn-info' data-toggle='collapse' data-target=".sample<%=secchi_depth.id%>">Details</td>
+      <td><%= link_to 'Edit', edit_secchi_depth_path(secchi_depth), class: 'btn btn-mini btn btn-warning', remote: true %></td>
+      <td><%= link_to 'Destroy', secchi_depth, class: 'btn btn-mini btn btn-danger', method: :delete, data: { confirm: 'Are you sure?' }, remote: true%></td>
+    </tr>
+    <tr>
+      <%=render 'show', :secchi_depth => secchi_depth %>
+    </tr>

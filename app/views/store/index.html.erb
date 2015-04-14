@@ -1,0 +1,32 @@
+<% @page_title = "WaterLog" %>
+
+<div class="page-header">
+  <h1>WaterLog</h1>
+</div>
+<div id="sample-form", style="display:none;"></div>
+<div class="media">
+<div class="media-body">
+<table class="table table-condensed">
+  <thead>
+    <tr>
+      <th>Lake name</th>
+      <th></th>
+      <th>Take Sample</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @lakes.each do |lake| %>
+      <tr>
+        <td><%= lake.lkname %></td>
+        <td><%= link_to('+ Secchi Depth', {:action => 'new', :controller =>'secchi_depths', :lake_id => lake.id}, class: 'btn btn-mini btn btn-primary', remote: true) %></td>
+        <td><%= link_to('+ Chlorophyll', {:action => 'new', :controller =>'chloros', :lake_id => lake.id}, class: 'btn btn-mini btn btn-primary', remote: true) %></td>
+        <td><%= link_to('+ Phosphorus', {:action => 'new', :controller =>'phosphos', :lake_id => lake.id}, class: 'btn btn-mini btn btn-primary', remote: true) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+</div>
+
+

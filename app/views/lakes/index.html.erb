@@ -1,0 +1,30 @@
+<% @page_title = "Lake List" %>
+<!-- <p id="notice"><%= notice %></p> -->
+
+<h1>Lakes</h1>
+<div class="media">
+<div class="media-body">
+<table class="table table-responsive">
+  <thead>
+    <tr>
+      <th>Lkname</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @lakes.each do |lake| %>
+      <tr>
+        <td><%= lake.lkname %></td>
+        <td><%= link_to 'Show', lake, class: 'btn btn-mini btn btn-success' %></td>
+        <td><%= link_to 'Edit', edit_lake_path(lake), class: 'btn btn-mini btn btn-warning' %></td>
+        <td><%= link_to 'Destroy', lake, class: 'btn btn-mini btn btn-danger', method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+</div>
+<br>
+
+<%= link_to 'New Lake', new_lake_path %>

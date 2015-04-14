@@ -1,0 +1,25 @@
+<tr>
+  <td class="hiddenRow"><strong><div class="collapse sample<%=phospho.id%>" >Created at:<div></strong></td>
+  <td class="hiddenRow"><div class="collapse sample<%=phospho.id%>" ><%= phospho.created_at.to_s(:long) %></div></td>
+</tr>
+
+<tr>
+  <td class="hiddenRow"><strong><div class="collapse sample<%=phospho.id%>" >Updated at:<div></strong></td>
+  <td class="hiddenRow"><div class="collapse sample<%=phospho.id%>" ><%= phospho.updated_at.to_s(:long) %></div></td>
+</tr>
+
+<tr>
+  <td class="hiddenRow"><strong><div class="collapse sample<%=phospho.id%>" >Weather:</div></strong></td>
+  <td class="hiddenRow"><div class="collapse sample<%=phospho.id%>" ><%= weather_text(phospho.weather)%></div></td>
+</tr>
+
+<tr>
+  <td class="hiddenRow"><strong><div class="collapse sample<%=phospho.id%>" >Comments:</div></strong></td>
+  <td class="hiddenRow"><div class="collapse sample<%=phospho.id%>" ><%= phospho.comments%></div></td>
+</tr>
+
+<tr>
+  <td class="hiddenRow"><strong><div class="collapse sample<%=phospho.id%>" >Season:</div></strong></td>
+  <td class="hiddenRow"><div class="collapse sample<%=phospho.id%>" ><%= season_text(phospho.season) %></div></td>
+</tr>
+    

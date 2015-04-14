@@ -1,0 +1,42 @@
+<%= form_for(@phospho, remote: true) do |f| %>
+  
+  <div class="field">
+    <%= f.label :lake_id %><br>
+    <%= f.select :lake_id, options_for_select(Lake.all.collect {|l| ["#{l.lkname}", l.id]}, selected: (@phospho.lake ? @phospho.lake.id : Lake.first.id)), {} %>
+  </div>
+
+  <div class="field">
+    <%= f.label :sample_time %><br>
+    <%= f.datetime_select :sample_time %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :season %><br>
+    <%= f.select :season, {"Spring Overturn"=> 0, "Late Summer"=>1}%>
+  </div>
+
+  <div class="field">
+    <%= f.label :weather %><br>
+    <%= f.select :weather, {"Sunny"=> 1, "Partly Cloudy"=>2, "Overcast"=>3, "Foggy"=> 4}%>
+  </div>
+
+  <div class="field">
+    <%= f.label :ice_out %><br>
+    <%= f.datetime_select :ice_out %>
+  </div>
+
+  <div class="field">
+    <%= f.label :sample_submit %><br>
+    <%= f.datetime_select :sample_submit %>
+  </div>
+
+  <div class="field">
+    <%= f.label :comments %><br>
+    <%= f.text_area :comments %>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit class: 'btn btn-primary'%>
+    <%= link_to 'Cancel', :back, :class=>"btn btn-default"%>
+  </div>
+<% end %>

@@ -1,0 +1,11 @@
+      <tr data-toggle="collapse" data-target=".sample<%=chloro.id%>">
+      <td> <%= Lake.find(chloro.lake_id).lkname %> </td>
+      <td> <%= chloro.sample_time.to_s(:long) %> </td>
+       
+      <td><button type='button' class='btn btn-info' data-toggle='collapse' data-target=".sample<%=chloro.id%>">Details</td>
+	  <td><%= link_to 'Edit', edit_chloro_path(chloro), class: 'btn btn-mini btn btn-warning', remote: true %></td>
+      <td><%= link_to 'Destroy', chloro, class: 'btn btn-mini btn btn-danger', method: :delete, data: { confirm: 'Are you sure?' }, remote: true %></td>
+      </tr>
+      <tr>
+      		<%=render 'show', :chloro => chloro %>
+      </tr>

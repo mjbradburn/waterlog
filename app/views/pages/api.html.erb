@@ -1,0 +1,406 @@
+    <% @page_title = "API Documentation" %>
+
+    <div class="page-header">
+      <h1>RESTful API: Resources</h1>
+    </div>
+
+    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+      <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingOne">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+              Secchi Depth
+            </a>
+          </h4>
+        </div>
+        <div id="collapseOne" class="panel-collapse collapse " role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+
+
+            <table class='table'>
+              <th>Attribute</th>
+              <th>Type</th>
+              <th>Desc</th>
+              <tr>
+                <td>'sample_time'</td>
+                <td>datetime</td>
+                <td>Date and time when sample was collected</td>
+              </tr>
+              <tr>
+                <td>'secchi_depth'</td>
+                <td>decimal</td>
+                <td>Data collected by volunteer</td>
+              </tr>
+              <tr>
+                <td>'weather'</td>
+                <td>integer</td>
+                <td>"Sunny"=>1, "Partly Cloudy"=>2, "Overcast"=>3, "Foggy"=>4, "Rainy"=>5</td>
+              </tr>
+              <tr>
+                <td>'comments'</td>
+                <td>text</td>
+                <td>Observations by volunteer</td>
+              </tr>
+              <tr>
+                <td>'lake_id'</td>
+                <td>integer</td>
+                <td>Lake the sample is associated with</td>
+              </tr>
+
+
+            </table>
+
+            <ul class="list-group">
+              <li class='list-group-item'>
+
+                <ul class="list-group">
+                  <li class='list-group-item'><strong>List of all secchi samples</strong></li>
+                  <li class='list-group-item'>GET /secchi_depths.json</li>
+                  <li class='list-group-item'>Example Request:</li>
+                  <li class='list-group-item'>
+                  <code>
+                    GET /secchi_depths.json HTTP/1.1
+                    Host: localhost:3000
+                    Content-Type: application/json
+                    Cache-Control: no-cache
+                  </code></li>
+                </ul>
+
+
+              </li>
+              <li class='list-group-item'>
+
+                <ul class="list-group">
+                  <li class='list-group-item'><strong>Create a secchi sample</strong></li>
+                  <li class='list-group-item'>POST /secchi_depths.json</li>
+                  <li class='list-group-item'>Example Request:</li>
+                  <li class='list-group-item'><code>{
+                  POST /secchi_depths.json HTTP/1.1
+                  Host: localhost:3000
+                  Content-Type: application/json
+                  Cache-Control: no-cache
+
+                  { "sample_time": "2015-04-12T15:58:00.000Z", "secchi_depth": 3.3, "weather": 1, "comments": "1", "lake_id": 1 }
+                  </code></li>
+               </ul>
+             </li>
+             <li class='list-group-item'>
+
+              <ul class="list-group">
+                <li class='list-group-item'><strong>Retrieve a secchi sample</strong></li>
+                <li class='list-group-item'>GET /secchi_depths/secchi_depth_id.json</li>
+                <li class='list-group-item'>Example Request:</li>
+                <li class='list-group-item'>
+                <code>
+                GET /secchi_depths/55.json HTTP/1.1
+                Host: localhost:3000
+                Content-Type: application/json
+                Cache-Control: no-cache
+
+                </code></li>
+              </ul>
+            </li>
+
+            <li class='list-group-item'>
+
+              <ul class="list-group">
+                <li class='list-group-item'><strong>Update a secchi sample</strong></li>
+                <li class='list-group-item'>PUT /secchi_depths/secchi_depth_id.json</li>
+                <li class='list-group-item'>Example Request:</li>
+                <li class='list-group-item'><code>PUT /secchi_depths/50.json
+                  {
+                  "sample_time": "2015-04-01T23:47:00.000Z",
+                  "lake_id": 1,
+                  "weather":4,
+                  "comments": "just updated"
+                }</code></li>
+              </ul>
+            </li>
+
+            <li class='list-group-item'>
+
+              <ul class="list-group">
+                <li class='list-group-item'><strong>Destroy a secchi sample</strong></li>
+                <li class='list-group-item'>DELETE /secchi_depths/secchi_depth_id.json</li>
+                <li class='list-group-item'>Example Request:</li>
+                <li class='list-group-item'><code>DELETE /secchi_depths/137.json
+                </code></li>
+              </ul>
+            </li>
+          </div>
+        </div>
+      </div>
+      <!-- Chloros -->
+      <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="heading2">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapse2" aria-expanded="false" aria-controls="collapse2">
+              Chlorophyll
+            </a>
+          </h4>
+        </div>
+        <div id="collapse2" class="panel-collapse collapse " role="tabpanel" aria-labelledby="heading2">
+          <div class="panel-body">
+
+            <table class='table'>
+              <th>Attribute</th>
+              <th>Type</th>
+              <th>Desc</th>
+              <tr>
+                <td>'sample_time'</td>
+                <td>datetime</td>
+                <td>Date and time when sample was collected</td>
+              </tr>
+              <tr>
+                <td>'event'</td>
+                <td>integer</td>
+                <td>Samples are taken afer "Spring Turnover"=>0 and "Late Summer"=>1</td>
+              </tr>
+              <tr>
+                <td>'comp_sample_depth'</td>
+                <td>decimal</td>
+                <td>Depth of composite water sample</td>
+              </tr>
+              <tr>
+                <td>'weather'</td>
+                <td>integer</td>
+                <td>"Sunny"=>1, "Partly Cloudy"=>2, "Overcast"=>3, "Foggy"=>4, "Rainy"=>5</td>
+              </tr>
+              <tr>
+                <td>'comments'</td>
+                <td>text</td>
+                <td>Observations by volunteer</td>
+              </tr>
+              <tr>
+                <td>'secchi_depth_id'</td>
+                <td>integer</td>
+                <td>Chlorophyll samples are associated with a Secchi sample</td>
+              </tr>
+
+              <tr>
+                <td>'lake_id'</td>
+                <td>integer</td>
+                <td>Lake the sample is associated with</td>
+              </tr>
+
+
+            </table>
+
+            <ul class="list-group">
+              <li class='list-group-item'>
+
+                <ul class="list-group">
+                  <li class='list-group-item'><strong>List of all chlorophyll samples</strong></li>
+                  <li class='list-group-item'>GET /chloros.json</li>
+                  <li class='list-group-item'>Example Request:</li>
+                  <li class='list-group-item'><code>GET /chloros.json HTTP/1.1
+                    Host: localhost:3000
+                    Content-Type: application/json
+                    Cache-Control: no-cache</code></li>
+                  </ul>
+
+
+                </li>
+                <li class='list-group-item'>
+
+                  <ul class="list-group">
+                    <li class='list-group-item'><strong>Create a chlorophyll sample</strong></li>
+                    <li class='list-group-item'>POST /chloros.json</li>
+                    <li class='list-group-item'>Example Request:</li>
+                    <li class='list-group-item'><code>POST /chloros.json HTTP/1.1
+                      Host: localhost:3000
+                      Content-Type: application/json
+                      Cache-Control: no-cache
+
+                      { "sample_time": "2015-04-12T20:41:00.000Z", "event": 3, "comp_sample_depth": "89.0", "weather": 1, "comments": "created by mark", "secchi_depth_id": 128, "lake_id": 1 }
+                    </code></li>
+                  </ul>
+                </li>
+                <li class='list-group-item'>
+
+                  <ul class="list-group">
+                    <li class='list-group-item'><strong>Retrieve a chlorophyll sample</strong></li>
+                    <li class='list-group-item'>GET /chloros/chloro_id.json</li>
+                    <li class='list-group-item'>Example Request:</li>
+                    <li class='list-group-item'><code>GET /chloros/51.json HTTP/1.1
+                      Host: localhost:3000
+                      Content-Type: application/json
+                      Cache-Control: no-cache</code></li>
+                    </ul>
+                  </li>
+
+                  <li class='list-group-item'>
+
+                    <ul class="list-group">
+                      <li class='list-group-item'><strong>Update a chlorophyll sample</strong></li>
+                      <li class='list-group-item'>PUT /chloros/chloro_id.json</li>
+                      <li class='list-group-item'>Example Request:</li>
+                      <li class='list-group-item'><code>PUT /chloros/51.json HTTP/1.1
+                        Host: localhost:3000
+                        Content-Type: application/json
+                        Cache-Control: no-cache
+
+                        { "id": 51, "sample_time": "2015-04-12T20:41:00.000Z", "event": 3, "comp_sample_depth": "89.0", "weather": 1, "comments": "updated by mark", "secchi_depth_id": 128, "lake_id": 1 }</code></li>
+                      </ul>
+                    </li>
+
+                    <li class='list-group-item'>
+
+                      <ul class="list-group">
+                        <li class='list-group-item'><strong>Destroy a chlorpphyll sample</strong></li>
+                        <li class='list-group-item'>DELETE /secchi_depths/secchi_depth_id.json</li>
+                        <li class='list-group-item'>Example Request:</li>
+                        <li class='list-group-item'><code>DELETE /chloros/51.json HTTP/1.1
+                          Host: localhost:3000
+                          Content-Type: application/json
+                          Cache-Control: no-cache
+                        </code></li>
+                      </ul>
+                    </li>
+                  </div>
+                </div>
+              </div>
+              <!-- Phosphorus -->
+              <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="heading3">
+                  <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse3" aria-expanded="false" aria-controls="collapse3">
+                      Phosphorus
+                    </a>
+                  </h4>
+                </div>
+                <div id="collapse3" class="panel-collapse collapse " role="tabpanel" aria-labelledby="heading3">
+                  <div class="panel-body">
+
+                    <table class='table'>
+                      <th>Attribute</th>
+                      <th>Type</th>
+                      <th>Desc</th>
+                      <tr>
+                        <td>'sample_time'</td>
+                        <td>datetime</td>
+                        <td>Date and time when sample was collected</td>
+                      </tr>
+                      <tr>
+                        <td>'season'</td>
+                        <td>integer</td>
+                        <td>Samples are taken afer "Spring Turnover"=>0 and "Late Summer"=>1</td>
+                      </tr>
+                      <tr>
+                        <td>'weather'</td>
+                        <td>integer</td>
+                        <td>"Sunny"=>1, "Partly Cloudy"=>2, "Overcast"=>3, "Foggy"=>4, "Rainy"=>5</td>
+                      </tr>
+                      <tr>
+                        <td>'ice_out'</td>
+                        <td>date</td>
+                        <td>Date when lake clear of ice</td>
+                      </tr>  
+                      <tr>
+                        <td>'sample_submit'</td>
+                        <td>date</td>
+                        <td>Date when sample was sent to lab</td>
+                      </tr>                                             
+                      <tr>
+                        <td>'comments'</td>
+                        <td>text</td>
+                        <td>Observations by volunteer</td>
+                      </tr>
+                      <tr>
+                        <td>'lake_id'</td>
+                        <td>integer</td>
+                        <td>Lake the sample is associated with</td>
+                      </tr>
+
+
+                    </table>
+
+                    <ul class="list-group">
+                      <li class='list-group-item'>
+
+                        <ul class="list-group">
+                          <li class='list-group-item'><strong>List of all phosphorus samples</strong></li>
+                          <li class='list-group-item'>GET /phosphos.json</li>
+                          <li class='list-group-item'>Example Request:</li>
+                          <li class='list-group-item'><code>
+                            GET /phosphos.json HTTP/1.1
+                            Host: localhost:3000
+                            Content-Type: application/json
+                            Cache-Control: no-cache
+                          </code></li>
+                        </ul>
+
+
+                      </li>
+                      <li class='list-group-item'>
+
+                        <ul class="list-group">
+                          <li class='list-group-item'><strong>Create a phosphorus sample</strong></li>
+                          <li class='list-group-item'>POST /phosphos.json</li>
+                          <li class='list-group-item'>Example Request:</li>
+                          <li class='list-group-item'><code>
+                            POST /phosphos.json HTTP/1.1
+                            Host: localhost:3000
+                            Content-Type: application/json
+                            Cache-Control: no-cache
+
+                            { "sample_time": "2015-05-12T15:53:00.000Z", "season": 1, "weather": 2, "ice_out": "2015-04-12", "sample_submit": "2015-04-17", "comments": "posted by mark", "lake_id": 5 }
+                          </code></li>
+                        </ul>
+                      </li>
+                      <li class='list-group-item'>
+
+                        <ul class="list-group">
+                          <li class='list-group-item'><strong>Retrieve a chlorophyll sample</strong></li>
+                          <li class='list-group-item'>GET /phosphos/phospho_id.json</li>
+                          <li class='list-group-item'>Example Request:</li>
+                          <li class='list-group-item'><code>
+                            GET /phosphos/15.json HTTP/1.1
+                            Host: localhost:3000
+                            Content-Type: application/json
+                            Cache-Control: no-cache
+                          </code></li>
+                        </ul>
+                      </li>
+
+                      <li class='list-group-item'>
+
+                        <ul class="list-group">
+                          <li class='list-group-item'><strong>Update a phosphorus sample</strong></li>
+                          <li class='list-group-item'>PUT /phosphos/phospho_id.json</li>
+                          <li class='list-group-item'>Example Request:</li>
+                          <li class='list-group-item'>
+                            <code>
+                              PUT /phosphos/15.json HTTP/1.1
+                              Host: localhost:3000
+                              Content-Type: application/json
+                              Cache-Control: no-cache
+
+                              { "sample_time": "2015-05-12T15:53:00.000Z", "season": 1, "weather": 2, "ice_out": "2015-04-12", "sample_submit": "2015-04-17", "comments": "updated by mark", "lake_id": 5 }                              
+                            </code></li>
+                          </ul>
+                        </li>
+
+                        <li class='list-group-item'>
+
+                          <ul class="list-group">
+                            <li class='list-group-item'><strong>Destroy a phosphorus sample</strong></li>
+                            <li class='list-group-item'>DELETE /phosphos/phospho_id.json</li>
+                            <li class='list-group-item'>Example Request:</li>
+                            <li class='list-group-item'><code>
+                              DELETE /phosphos/4.json HTTP/1.1
+                              Host: localhost:3000
+                              Content-Type: application/json
+                              Cache-Control: no-cache
+                            </code></li>
+                          </ul>
+                        </li>
+                      </div>
+                    </div>
+                  </div>
+
+
+
+
+
+                </div>

@@ -1,0 +1,10 @@
+<% flash.each do |type, message| %>
+  $("#flash_messages").html("<%= type.to_s.humanize %>: <%= message.html_safe %>")
+  $("#flash_messages").attr("id","notice")
+  $("#notice").show().hide(2000)
+ 
+<% end %>
+
+$('#sample-form').html("<%= j (render 'chloros/form') %>");
+$('#sample-form').slideDown(350);
+

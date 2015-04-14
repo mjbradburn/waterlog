@@ -1,0 +1,39 @@
+<%= form_for(@chloro, remote: true) do |f| %>
+  
+  <div class="field">
+    <%= f.label :lake_id %><br>
+    <%= f.select :lake_id, options_for_select(Lake.all.collect {|l| ["#{l.lkname}", l.id]}, selected: (@chloro.lake ? @chloro.lake.id : Lake.first.id)), {} %>
+  </div>
+
+  <div class="field">
+    <%= f.label :sample_time %><br>
+    <%= f.datetime_select :sample_time %>
+  </div>
+  <div class="field">
+    <%= f.label :event %><br>
+    <%= f.select :event, {"May"=> 1, "June"=>2, "July"=>3, "August"=>4, "September"=> 5}%>
+  </div>
+  <div class="field">
+    <%= f.label :comp_sample_depth %><br>
+    <%= f.text_field :comp_sample_depth%>
+  </div>
+
+  <div class="field">
+    <%= f.label :secchi_depth_id, "Linked to Secchi" %><br>
+    <%= f.select :secchi_depth_id, options_for_select(SecchiDepth.all.collect {|s| ["#{s.sample_time.to_s(:long)}", s.id]}, selected: (@chloro.secchi_depth ? @chloro.secchi_depth.id : SecchiDepth.last.id)),{} %>
+  </div>
+
+
+  <div class="field">
+    <%= f.label :weather %><br>
+    <%= f.select :weather, {"Sunny"=> 1, "Partly Cloudy"=>2, "Overcast"=>3, "Foggy"=> 4}%>
+  </div>
+    <div class="field">
+    <%= f.label :comments %><br>
+    <%= f.text_area :comments %>
+  </div>
+  <div class="actions">
+    <%= f.submit class: 'btn btn-primary'%>
+    <%= link_to 'Cancel', :back, :class=>'btn btn-default' %>
+  </div>
+<% end %>

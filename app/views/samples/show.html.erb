@@ -1,0 +1,29 @@
+<!-- <p id="notice"><%= notice %></p> -->
+<% @page_title = "Your Sample" %>
+
+<div class="media">
+<div class="media-body">
+<table class="table table-bordered table table-condensed">  
+<thead>
+<tbody>
+  <tr> 
+  	<td> <strong>Lake:</strong> </td>
+  	<td> <%= Lake.find(@sample.lake_id).lkname %></td>
+  </tr>
+
+  <tr> 
+  	<td> <strong>Taken at: </strong></td>
+  	<td> <%=@sample.time.to_s(:long) %> </td>
+  </tr>
+  	
+  <tr> 
+  	<td><strong> Data: </strong></td>
+	<td> <%= @sample.data %></td>
+  </tr>
+<tbody>
+</table>
+</div>
+</div>
+
+<%= link_to 'Edit', edit_sample_path(@sample) %> |
+<%= link_to 'Back', samples_path %>

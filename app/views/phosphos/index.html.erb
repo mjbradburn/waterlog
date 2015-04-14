@@ -1,0 +1,27 @@
+<% @page_title = "Phosphorus Samples" %>
+<div class="media">
+<div class="media-body">
+<div id="sample-form", style="display:none;"></div>
+<div class="page-header">
+  <h1>Phosphorus</h1>
+  <%= link_to 'New Phosphorus', :root, class: 'new-button btn btn-mini btn btn-success'  %>
+</div>
+
+
+<table class="table table-condensed" style="collapse;">
+<col width='100'>
+  <thead>
+    <tr>
+      <th> Lake </th>
+      <th> Time </th>
+    </tr>
+  </thead>
+
+  <tbody id="phosphos">
+    <%= render @phosphos %>
+  </tbody>
+</table>
+</div>
+</div>
+
+

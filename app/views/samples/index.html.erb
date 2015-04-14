@@ -1,0 +1,46 @@
+<% @page_title = "Sample List" %>
+<!--<p id="notice"><%= notice %></p> -->
+
+<h1>Samples</h1>
+<div id="show-sample", style="display:none;" ></div>
+<div class="media">
+<div class="media-body">
+
+<table class="table " style="collapse;">
+<col width="100">
+  <thead>
+    <tr>
+      <th>Lake</th>
+      <th>Time</th>
+      <th>Data</th>
+      <th colspan="6"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @samples.each do |sample| %>
+      <tr data-toggle="collapse" data-target=".sample<%=sample.id%>">
+        <td><%= Lake.find(sample.lake_id).lkname %> </td>
+        <td><%= sample.time.to_s(:long) %></td>
+        <td><%= sample.data %></td>
+        
+
+        <td><button type='button' class='btn btn-info' data-toggle='collapse' data-target=".sample<%=sample.id%>">Details</td>
+
+
+        <td><%= link_to 'Edit', edit_sample_path(sample), class: 'btn btn-mini btn btn-warning' %></td>
+        <td><%= link_to 'Destroy', sample, class: 'btn btn-mini btn btn-danger', method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>      
+      <tr>
+          <%= render 'show', :sample => sample %>
+      </tr>
+  
+    <% end %>
+  </tbody>
+</table>
+</div>
+</div>
+
+<br>
+
+<%= link_to 'New Sample', :root ,class: 'btn btn-mini btn btn-success'  %>

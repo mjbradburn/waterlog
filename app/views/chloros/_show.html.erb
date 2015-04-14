@@ -1,0 +1,35 @@
+<tr>
+  <td class="hiddenRow"><strong><div class="collapse sample<%=chloro.id%>" >Created at:<div></strong></td>
+  <td class="hiddenRow"><div class="collapse sample<%=chloro.id%>" ><%= chloro.created_at.to_s(:long) %></div></td>
+</tr>
+
+<tr>
+  <td class="hiddenRow"><strong><div class="collapse sample<%=chloro.id%>" >Updated at:<div></strong></td>
+  <td class="hiddenRow"><div class="collapse sample<%=chloro.id%>" ><%= chloro.updated_at.to_s(:long) %></div></td>
+</tr>
+
+<tr>
+  <td class="hiddenRow"><strong><div class="collapse sample<%=chloro.id%>" >Weather:</div></strong></td>
+  <td class="hiddenRow"><div class="collapse sample<%=chloro.id%>" ><%= weather_text(chloro.weather)%></div></td>
+</tr>
+
+<tr>
+  <td class="hiddenRow"><strong><div class="collapse sample<%=chloro.id%>" >Comments:</div></strong></td>
+  <td class="hiddenRow"><div class="collapse sample<%=chloro.id%>" ><%= chloro.comments%></div></td>
+</tr>
+
+<tr>
+  <td class="hiddenRow"><strong><div class="collapse sample<%=chloro.id%>" >Event:</div></strong></td>
+  <td class="hiddenRow"><div class="collapse sample<%=chloro.id%>" ><%= chloro.event%></div></td>
+</tr>
+
+<tr>
+  <td class="hiddenRow"><strong><div class="collapse sample<%=chloro.id%>" >Composite Sample Depth:</div></strong></td>
+  <td class="hiddenRow"><div class="collapse sample<%=chloro.id%>" ><%= chloro.comp_sample_depth%></div></td>
+</tr>
+
+<tr>
+  <td class="hiddenRow"><strong><div class="collapse sample<%=chloro.id%>" >Linked to Secchi:</div></strong></td>
+  <td class="hiddenRow"><div class="collapse sample<%=chloro.id%>" ><%= SecchiDepth.find(chloro.secchi_depth_id).sample_time.to_s(:long)%></div></td>
+</tr>
+

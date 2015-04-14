@@ -1,0 +1,29 @@
+<% @page_title = "Chlorophyll Samples" %>
+
+<div class="media">
+<div class="media-body">
+<div id="sample-form", style="display:none;"></div>
+<div class="page-header">
+<h1>Chlorophyll Samples </h1>
+<%= link_to 'New Chloro', :root, class: 'new-button btn btn-mini btn-success'%>
+</div>
+
+<table class="table table-condensed" style="collapse;">
+<col width="100">
+  <thead>
+    <tr>
+      <th> Lake </th>
+      <th> Time </th>
+      <th></th>
+      <th>Actions</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody id="chloros">
+    <%= render @chloros %>
+  </tbody>
+</table>
+
+</div>
+</div>

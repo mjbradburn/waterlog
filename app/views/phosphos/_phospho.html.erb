@@ -1,0 +1,12 @@
+    <tr data-toggle="collapse" data-target=".sample<%=phospho.id%>">
+    	<td><%= Lake.find(phospho.lake_id).lkname %> </td>
+    	<td><%= phospho.sample_time.to_s(:long) %></td>
+
+    	<td><button type='button' class='btn btn-info' data-toggle='collapse' data-target=".sample<%=phospho.id%>">Details</td>
+    	<td><%= link_to 'Edit', edit_phospho_path(phospho), class: 'btn btn-mini btn btn-warning', remote: true %></td>
+    	<td><%= link_to 'Destroy', phospho, class: 'btn btn-mini btn btn-danger', method: :delete, data: { confirm: 'Are you sure?' }, remote: true %></td>
+    </tr>
+
+    <tr>
+    	<%=render 'show', :phospho => phospho %>
+    </tr>

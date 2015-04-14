@@ -1,0 +1,20 @@
+<tr>
+  <td class="hiddenRow"><strong><div class="collapse sample<%=secchi_depth.id%>" >Created at:<div></strong></td>
+  <td class="hiddenRow"><div class="collapse sample<%=secchi_depth.id%>" ><%= secchi_depth.created_at.to_s(:long) %></div></td>
+</tr>
+
+<tr>
+  <td class="hiddenRow"><strong><div class="collapse sample<%=secchi_depth.id%>" >Updated at:<div></strong></td>
+  <td class="hiddenRow"><div class="collapse sample<%=secchi_depth.id%>" ><%= secchi_depth.updated_at.to_s(:long) %></div></td>
+</tr>
+
+<tr>
+  <td class="hiddenRow"><strong><div class="collapse sample<%=secchi_depth.id%>" >Weather:</div></strong></td>
+  <td class="hiddenRow"><div class="collapse sample<%=secchi_depth.id%>" ><%= weather_text(secchi_depth.weather)%></div></td>
+</tr>
+
+<tr>
+  <td class="hiddenRow"><strong><div class="collapse sample<%=secchi_depth.id%>" >Comments:</div></strong></td>
+  <td class="hiddenRow"><div class="collapse sample<%=secchi_depth.id%>" ><%= secchi_depth.comments%></div></td>
+</tr>
+    

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Waterlog | <%= @page_title %> </title>
+	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	<%= csrf_meta_tags %>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<div id="wrap">
+<div class='container-fluid'>
+
+
+				<ul class="nav nav-pills nav-justified">
+					<li><%=link_to "Home", root_path%></li>
+					<li><%=link_to "Secchi", secchi_depths_path%></li>
+					<li><%=link_to "Chlorophyll", chloros_path%></li>
+					<li><%=link_to "Phosphorus", phosphos_path%></li>
+					<!-- <li><%=link_to "Samples", samples_path %></li> -->
+				</ul>
+
+
+			<%= render 'layouts/flash_notices'%> 
+			
+			<div class='container-fluid'>
+
+			<%= yield %>
+
+			</div>
+
+
+		
+</div>
+</div>
+</hr>
+ <%= params.inspect %>
+
+<div id="footer">
+	<div class="container">
+		<p class="muted credit">For Developers: <%=link_to "RESTful API", api_path%></p>
+	</div>
+</div>
+
+</body>
+</html>
